@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+:root {
+    background-color: rgb(9, 108, 31);
+    color: whitesmoke;
+    display: block;
+    text-align: center;
+    font-family: "kalam";
+    margin-top: 3rem;
+    
+}
+
+.text{
+    font-size: large;
+    font-weight: 500;
+}
+
+textarea{
+    color: black;
+    font-size: large;
+    font-weight: 600;
+    width: 30%;
+    padding: 2rem;
+    border-radius: 0.5rem;
+
+}
+
+button{
+    display: block;
+    margin: 3rem auto;
+    border: 0.1rem solid rgb(155, 146, 155);
+    background-color: rgb(18, 16, 20);
+    color: whitesmoke;
+    font-family: "kalam";
+    font-size: x-large;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+#output {
+    background-color: aliceblue;
+    margin: auto;
+    color: black;
+    font-size: large;
+    font-weight: 600;
+    width: 30%;
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
