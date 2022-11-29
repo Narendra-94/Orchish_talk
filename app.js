@@ -2,33 +2,31 @@ var btnTranslate = document.querySelector("#btn-translate");
 var txtInput = document.querySelector("#txt-input");
 var outputDiv = document.querySelector("#output");
 
-var serverURL = "https://api.funtranslations.com/translate/orcish.json"
+var serverURL = "https://api.funtranslations.com/translate/shakespeare.json";
 
-function getTranslateURL(text){
-    return serverURL + "?" + "text=" + text
+function getTranslateURL(text) {
+  return serverURL + "?" + "text=" + text;
 }
 
-function errrorHandler(error){
-    console.log("error occured", error)
-    alert("something wrong with server !! try again after sometime")
+function errrorHandler(error) {
+  console.log("error occured", error);
+  alert("something wrong with server !! try again after sometime");
 }
 
-function clickEventHandler(){
-    
+function clickEventHandler() {
+  var innerText = txtInput.value;
 
-    var innerText = txtInput.value;
+  fetch(getTranslateURL(innerText))
+    .then(newFunction())
+    .then((json) => {
+      var translateText = json.contents.translated;
+      outputDiv.innerText = translateText;
+    })
+    .catch(errrorHandler);
 
-    fetch(getTranslateURL(innerText))
-        .then( newFunction())
-        .then(json => { 
-            var translateText = json.contents.translated;
-            outputDiv.innerText = translateText;
-            })
-        .catch(errrorHandler)
+  function newFunction() {
+    return (response) => response.json();
+  }
+}
 
-    function newFunction() {
-        return response => response.json();
-    }
-};
-
-btnTranslate.addEventListener("click",clickEventHandler)
+btnTranslate.addEventListener("click", clickEventHandler);
